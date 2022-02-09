@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[fontsize=12pt]{scrextend}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage[noend]{algpseudocode}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1.5}
+
+\title{4.1: The Maximum-Subarray Problem}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textit{\textbf{4.1-1}} \\
+What does \texttt{FIND-MAXIMUM-SUBARRAY} return when all elements of $A$ are negative?\\
+\textit{\textbf{Ans 4.1-1}} \\
+It will return the greatest element of $A$.\\
+
+\textit{\textbf{4.1-2}} Write pseudocode for the brute-force method of solving the maximum-subarray problem. Your procedure should run in $\Theta(n^2)$ time.
+
+\textit{\textbf{Ans 4.1-2}} \\
+\begin{algorithm}
+	\caption{BRUTE-FORCE-FIND-MAXIMUM-SUBARRAY}
+	\begin{algorithmic}[1]
+		\Procedure{maxSubarray}{$arr, n$}
+		\Statex
+		\State $max-sum := -\infty$
+		\State $low := 0$
+		\State $high := 0$
+		\For{$i := 1 \textbf{ to } n$}
+			\State $sum := 0$
+			\For{$j := 1 \textbf{ to } n$}
+				\State $sum := sum + arr[j]$
+				\If{$sum >  max-sum$}
+					\State $max-sum := sum$
+					\State $low := i$
+					\State $high := j$
+				\EndIf
+			\EndFor
+		\EndFor
+		\State \textbf{return} $\left( low, high, max-sum\right)$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+\newpage
+\textit{\textbf{4.1-3}} Implement both the brute-force and recursive algorithms for the maximum-subarray problem on your own computer. What problem size $n_0$ gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then, change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less than $n_0$. Does that change the crossover point? \\
+\textit{\textbf{Ans 4.1-3}} 
+\end{document}
