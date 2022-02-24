@@ -8,3 +8,6 @@ if __name__ == '__main__':
     print(obj.binary_search_iterative(55))
     print(obj.binary_search_recurssive(55))
     print(obj.jump_search(55))
+    print(obj.interpolation_search(55))
+    print(obj.exponential_search(55))
+    print(obj.exponential_search(55))
